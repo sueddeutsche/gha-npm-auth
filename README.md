@@ -20,5 +20,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: sueddeutsche/gha-npm-auth
-      ...
+        with:
+          npm-token: ${{ secrets.NPM_TOKEN }}
 ```

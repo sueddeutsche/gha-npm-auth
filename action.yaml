@@ -1,9 +1,13 @@
 name: NPM Auth
 description: Set up npm authentication
+inputs:
+  npm-token:
+    description: Cache
+    required: true
 runs:
   using: composite
   steps:
-    - run: echo -e "\n//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
+    - run: echo -e "\n//registry.npmjs.org/:_authToken=${{ inputs.npm-token }}" >> .npmrc
       shell: bash
     - run: echo NPM_CONFIG_USERCONFIG=$(realpath .npmrc) >> $GITHUB_ENV
       shell: bash
