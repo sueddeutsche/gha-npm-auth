@@ -1,0 +1,9 @@
+name: NPM Auth
+description: Set up npm authentication
+runs:
+  using: composite
+  steps:
+    - run: echo -e "\n//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
+      shell: bash
+    - run: echo NPM_CONFIG_USERCONFIG=$(realpath .npmrc) >> $GITHUB_ENV
+      shell: bash
