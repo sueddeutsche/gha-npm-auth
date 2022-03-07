@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: sueddeutsche/gha-npm-auth
+      - uses: sueddeutsche/gha-npm-auth@v1
         with:
           npm-token: ${{ secrets.NPM_TOKEN }}
 ```
